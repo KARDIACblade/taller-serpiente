@@ -125,23 +125,17 @@ function moverAbajo() {
 
 
 function cambiarDireccion(direccion) {
-    if (direccion === "derecha") {
-        moverDerecha();
-    }
-    if (direccion === "izquierda") {
-        moverIzquierda();
-    }
-    if (direccion === "arriba") {
-        moverArriba();
-    }
-    if (direccion === "abajo") {
-        moverAbajo();
-    }
-    pintarSerpiente();
+ 
+    direccionActual = direccion;
 }
+
 /////
 
 let intervaloSerpiente;
+
+let direccionActual = "derecha";
+
+///
 
 function iniciarJuego() {
   intervaloSerpiente = setInterval(moverSerpiente, 1000);
@@ -156,10 +150,40 @@ function pausarJuego() {
 
 
   function moverSerpiente() {
-    console.log("moviendo");
+
+    if (direccionActual === "derecha") {
+        moverDerecha();
+    }
+    if (direccionActual === "izquierda") {
+        moverIzquierda();
+    }
+    if (direccionActual === "arriba") {
+        moverArriba();
+    }
+    if (direccionActual === "abajo") {
+        moverAbajo();
+    }
+    pintarSerpiente();
+
+   
+}
+///// mover comida
+
+function pintarComida() {
+    const lineasVerticales = canvas.width / TAMANIO_CELDA;
+    const lineasHorizontales = canvas.height / TAMANIO_CELDA;
+
+    const comidaX = Math.floor(Math.random() * lineasVerticales);
+    const comidaY = Math.floor(Math.random() * lineasHorizontales);
+
+    pintarParte(comidaX, comidaY, "green");
 }
 
+
+
+
 ///////
+
 
     function dibujarTodo(){
       limpiarCanvas();
