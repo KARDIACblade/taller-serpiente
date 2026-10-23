@@ -147,7 +147,7 @@ let velocidad = 300;
 
 function iniciarJuego() {
   intervaloSerpiente = setInterval(moverSerpiente, velocidad);
-    document.getElementById("mensaje").textContent = "¡Buena suerte! Usa las flechas para moverte.";
+  document.getElementById("mensaje").textContent = "¡Buena suerte! Usa las flechas para moverte.";
 
 }
 
