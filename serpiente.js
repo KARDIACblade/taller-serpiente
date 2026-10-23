@@ -16,22 +16,25 @@
     const TAMANIO_CELDA = 25;
 
     function dibujarTablero() {
-      // 1. Definimos el color de la línea del tablero
-      ctx.strokeStyle = "#374151"; 
-      
-      // 2. Iniciamos el camino de dibujo
-      ctx.beginPath();
-      
-      // 3. Posición inicial de la línea (arriba a la izquierda)
-      ctx.moveTo(0, 0);
-      
-      // 4. Posición final de la línea (baja verticalmente hasta el final del canvas)
-      ctx.lineTo(0, 500);
-      
-      // 5. Renderizamos/pintamos la línea en pantalla
-      ctx.stroke();
-    }
+        ctx.strokeStyle = "#374151"; 
 
+      // 2. Bucle para dibujar las líneas verticales y horizontales
+      // Usamos el tamaño del canvas (500) y el TAMANIO_CELDA (25)
+      
+      for (let i = 0; i <= canvas.width; i += TAMANIO_CELDA) {
+        
+        // --- LÍNEAS VERTICALES ---
+        ctx.beginPath();
+        ctx.moveTo(i, 0);       // Arriba en la posición 'i'
+        ctx.lineTo(i, canvas.height); // Baja hasta el fondo del canvas
+        ctx.stroke();
+
+        // --- LÍNEAS HORIZONTALES ---
+        ctx.beginPath();
+        ctx.moveTo(0, i);       // A la izquierda en la posición 'i'
+        ctx.lineTo(canvas.width, i);  // Se extiende hasta el ancho máximo
+        ctx.stroke();
+    }
     // =========================
 
     function limpiarCanvas() {
