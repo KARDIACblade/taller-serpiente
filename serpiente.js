@@ -87,7 +87,7 @@
     }
 
     }
-/////
+///// mover derecha
 
 
     function moverDerecha() {
@@ -97,7 +97,15 @@
     serpiente.pop();
     }
 
+///// cambio direccion
 
+
+function cambiarDireccion(direccion) {
+    if (direccion === "derecha") {
+        moverDerecha();
+    }
+    pintarSerpiente();
+}
 
 
 ///////
