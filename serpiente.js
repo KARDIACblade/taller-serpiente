@@ -138,6 +138,8 @@ let direccionActual = "derecha";
 let comida = { x: -1, y: -1 };
 
 let puntaje = 0;
+
+let juegoTerminado = false;
 ///
 
 function iniciarJuego() {
@@ -167,6 +169,13 @@ function pausarJuego() {
         moverAbajo();
     }
 
+
+
+    if (chocaConBorde()) {
+        gameOver();
+        return;
+    }
+    
 
     if (atrapaComida()) {
         puntaje++;
@@ -223,6 +232,31 @@ function atrapaComida() {
     return false;
 }
 
+
+////// detectar chocque
+
+
+
+function chocaConBorde() {
+    const cabeza = serpiente[0];
+    const columnas = canvas.width / TAMANIO_CELDA;
+    const filas = canvas.height / TAMANIO_CELDA;
+
+    if (cabeza.x < 0 || cabeza.x >= columnas || cabeza.y < 0 || cabeza.y >= filas) {
+        return true;
+    }
+    return false;
+}
+
+/////  juego terminado
+
+
+function gameOver() {
+    clearInterval(intervaloSerpiente);
+    juegoTerminado = true;
+    document.getElementById("estado").textContent = "GAME OVER";
+    document.getElementById("mensaje").textContent = "GAME OVER: chocaste con el borde";
+}
 
 ///////
 
