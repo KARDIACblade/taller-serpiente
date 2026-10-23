@@ -53,11 +53,28 @@
       }
     }
 
+
+    function pintarParte(lineaX, lineaY) {
+    const posX = lineaX * TAMANIO_CELDA;
+    const posY = lineaY * TAMANIO_CELDA;
+
+      ctx.fillStyle = "red";
+      ctx.fillRect(posX, posY, TAMANIO_CELDA, TAMANIO_CELDA)
+
+      ctx.strokeStyle = "#fca5a5";
+       ctx.strokeRect(posX, posY, TAMANIO_CELDA, TAMANIO_CELDA);
+}
+
+
+
     function dibujarTodo(){
       limpiarCanvas();
-    // =========================
+
+        // =========================
 
       dibujarTablero();
+
+      pintarParte(5,5);   // PRUEBA 1
   }
 
 
