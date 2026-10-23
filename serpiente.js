@@ -74,7 +74,13 @@
 
       dibujarTablero();
 
-      pintarParte(5,5);   // PRUEBA 1
+      
+     pintarParte(5,5);     // PRUEBA 1
+    pintarParte(10,2);    // PRUEBA 2
+    pintarParte(12,23);   // PRUEBA 3: pegado al borde inferior
+    pintarParte(23,8);    // PRUEBA 4: pegado al borde derecho
+    pintarParte(0,15);    // PRUEBA 5: pegado al borde izquierdo
+    pintarParte(23,23);   // PRUEBA 6: en una esquina (no la (0,0))
   }
 
 
