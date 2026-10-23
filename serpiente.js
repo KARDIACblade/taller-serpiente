@@ -136,6 +136,8 @@ let intervaloSerpiente;
 let direccionActual = "derecha";
 
 let comida = { x: -1, y: -1 };
+
+let puntaje = 0;
 ///
 
 function iniciarJuego() {
@@ -163,6 +165,33 @@ function pausarJuego() {
     }
     if (direccionActual === "abajo") {
         moverAbajo();
+    }
+
+
+    if (atrapaComida()) {
+        puntaje++;
+        document.getElementById("puntaje").textContent = puntaje;
+
+        const cola = serpiente[serpiente.length - 1];
+        let nuevaCola;
+
+        if (direccionActual === "derecha") {
+            nuevaCola = { x: cola.x - 1, y: cola.y };
+        }
+        if (direccionActual === "izquierda") {
+            nuevaCola = { x: cola.x + 1, y: cola.y };
+        }
+        if (direccionActual === "arriba") {
+            nuevaCola = { x: cola.x, y: cola.y + 1 };
+        }
+        if (direccionActual === "abajo") {
+            nuevaCola = { x: cola.x, y: cola.y - 1 };
+        }
+
+        serpiente.push(nuevaCola);
+    
+
+
     }
     pintarSerpiente();
 
