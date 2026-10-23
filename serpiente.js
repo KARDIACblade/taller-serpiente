@@ -97,6 +97,30 @@
     serpiente.pop();
     }
 
+
+///// mov iz mov up mov down
+
+function moverIzquierda() {
+    const cabeza = serpiente[0];
+    const nuevaCabeza = { x: cabeza.x - 1, y: cabeza.y };
+    serpiente.unshift(nuevaCabeza);
+    serpiente.pop();
+}
+
+function moverArriba() {
+    const cabeza = serpiente[0];
+    const nuevaCabeza = { x: cabeza.x, y: cabeza.y - 1 };
+    serpiente.unshift(nuevaCabeza);
+    serpiente.pop();
+}
+
+function moverAbajo() {
+    const cabeza = serpiente[0];
+    const nuevaCabeza = { x: cabeza.x, y: cabeza.y + 1 };
+    serpiente.unshift(nuevaCabeza);
+    serpiente.pop();
+}
+
 ///// cambio direccion
 
 
@@ -104,9 +128,35 @@ function cambiarDireccion(direccion) {
     if (direccion === "derecha") {
         moverDerecha();
     }
+    if (direccion === "izquierda") {
+        moverIzquierda();
+    }
+    if (direccion === "arriba") {
+        moverArriba();
+    }
+    if (direccion === "abajo") {
+        moverAbajo();
+    }
     pintarSerpiente();
-} 
+}
+/////
 
+
+
+function iniciarJuego() {
+  setInterval(moverSerpiente, 1000);
+}
+
+function pausarJuego() {
+
+}
+
+////
+
+
+  function moverSerpiente() {
+    console.log("moviendo");
+}
 
 ///////
 
