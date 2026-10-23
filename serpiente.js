@@ -135,6 +135,7 @@ let intervaloSerpiente;
 
 let direccionActual = "derecha";
 
+let comida = { x: -1, y: -1 };
 ///
 
 function iniciarJuego() {
@@ -176,10 +177,22 @@ function pintarComida() {
     const comidaX = Math.floor(Math.random() * lineasVerticales);
     const comidaY = Math.floor(Math.random() * lineasHorizontales);
 
+    comida = { x: comidaX, y: comidaY };
+
+
     pintarParte(comidaX, comidaY, "green");
+} 
+
+///ATRAPAR COMIDA
+
+function atrapaComida() {
+    const cabeza = serpiente[0];
+
+    if (cabeza.x === comida.x && cabeza.y === comida.y) {
+        return true;
+    }
+    return false;
 }
-
-
 
 
 ///////
