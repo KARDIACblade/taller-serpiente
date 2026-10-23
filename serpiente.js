@@ -175,7 +175,7 @@ function pausarJuego() {
         gameOver();
         return;
     }
-    
+
 
     if (atrapaComida()) {
         puntaje++;
@@ -257,6 +257,35 @@ function gameOver() {
     document.getElementById("estado").textContent = "GAME OVER";
     document.getElementById("mensaje").textContent = "GAME OVER: chocaste con el borde";
 }
+
+
+///reiniciar juego
+
+function reiniciarJuego() {
+    // detener cualquier intervalo que esté corriendo
+    clearInterval(intervaloSerpiente);
+
+    // serpiente en su posición inicial
+    serpiente.length = 0;
+    serpiente.push({x:5, y:5}, {x:4, y:5}, {x:3, y:5}, {x:2, y:5});
+
+    // reiniciar dirección, GAME OVER y puntaje
+    direccionActual = "derecha";
+    juegoTerminado = false;
+    puntaje = 0;
+
+    // reiniciar lo que se ve en pantalla
+    document.getElementById("puntaje").textContent = puntaje;
+    document.getElementById("estado").textContent = "Listo";
+    document.getElementById("mensaje").textContent = "Presiona iniciar para comenzar.";
+
+    // limpiar el tablero y volver a pintar
+    dibujarTodo();
+}
+
+
+
+
 
 ///////
 
