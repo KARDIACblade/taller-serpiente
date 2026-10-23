@@ -105,7 +105,7 @@ function cambiarDireccion(direccion) {
         moverDerecha();
     }
     pintarSerpiente();
-}
+} 
 
 
 ///////
