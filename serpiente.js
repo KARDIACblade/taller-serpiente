@@ -141,13 +141,14 @@ function cambiarDireccion(direccion) {
 }
 /////
 
-
+let intervaloSerpiente;
 
 function iniciarJuego() {
-  setInterval(moverSerpiente, 1000);
+  intervaloSerpiente = setInterval(moverSerpiente, 1000);
 }
 
 function pausarJuego() {
+  clearInterval(intervaloSerpiente);
 
 }
 
