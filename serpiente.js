@@ -140,10 +140,15 @@ let comida = { x: -1, y: -1 };
 let puntaje = 0;
 
 let juegoTerminado = false;
+
+let velocidad = 300;
+
 ///
 
 function iniciarJuego() {
-  intervaloSerpiente = setInterval(moverSerpiente, 1000);
+  intervaloSerpiente = setInterval(moverSerpiente, velocidad);
+    document.getElementById("mensaje").textContent = "¡Buena suerte! Usa las flechas para moverte.";
+
 }
 
 function pausarJuego() {
