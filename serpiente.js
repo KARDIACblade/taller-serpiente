@@ -11,10 +11,10 @@
 
     // Arreglo que representa el cuerpo de la serpiente
       const serpiente = [
-          {x:11, y:11},
-          {x:12, y:11},
-          {x:13, y:11},
-          {x:13, y:12}
+          {x:5, y:5},   // cabeza
+          {x:4, y:5},
+          {x:3, y:5},
+          {x:2, y:5}
       ];
 
     
@@ -80,14 +80,22 @@
     for (let i = 0; i < serpiente.length; i++) {
        let color = "red" //cuerpo
 
-      if (i === serpiente.length - 1) {
+      if (i === 0) {
             color = "yellow";                    // cabeza
         }
         pintarParte(serpiente[i].x, serpiente[i].y,color);
     }
 
     }
+/////
 
+
+    function moverDerecha() {
+    const cabeza = serpiente[0];
+    const nuevaCabeza = { x: cabeza.x + 1, y: cabeza.y };
+    serpiente.unshift(nuevaCabeza);
+    serpiente.pop();
+    }
 
 
 
