@@ -9,6 +9,14 @@
         const TAMANIO_CELDA = 25;
     // ==========================================
 
+    // Arreglo que representa el cuerpo de la serpiente
+      const serpiente = [
+          {x:11, y:11},
+          {x:12, y:11},
+          {x:13, y:11},
+          {x:13, y:12}
+      ];
+
     
 
     // Primera pintura del juego al cargar la página
@@ -54,11 +62,11 @@
     }
 
 
-    function pintarParte(lineaX, lineaY) {
+    function pintarParte(lineaX, lineaY, color = "red") {
     const posX = lineaX * TAMANIO_CELDA;
     const posY = lineaY * TAMANIO_CELDA;
 
-      ctx.fillStyle = "red";
+      ctx.fillStyle = color;
       ctx.fillRect(posX, posY, TAMANIO_CELDA, TAMANIO_CELDA)
 
       ctx.strokeStyle = "#fca5a5";
@@ -66,21 +74,40 @@
 }
 
 
+//////
+    function pintarSerpiente() {
+
+    for (let i = 0; i < serpiente.length; i++) {
+       let color = "red" //cuerpo
+
+      if (i === serpiente.length - 1) {
+            color = "yellow";                    // cabeza
+        }
+        pintarParte(serpiente[i].x, serpiente[i].y,color);
+    }
+
+    }
+
+
+
+
+
+///////
 
     function dibujarTodo(){
       limpiarCanvas();
-
         // =========================
-
       dibujarTablero();
+        //========================
+      pintarSerpiente();
 
       
-     pintarParte(5,5);     // PRUEBA 1
-    pintarParte(10,2);    // PRUEBA 2
-    pintarParte(12,23);   // PRUEBA 3: pegado al borde inferior
-    pintarParte(23,8);    // PRUEBA 4: pegado al borde derecho
-    pintarParte(0,15);    // PRUEBA 5: pegado al borde izquierdo
-    pintarParte(23,23);   // PRUEBA 6: en una esquina (no la (0,0))
+     //pintarParte(5,5);     // PRUEBA 1
+   // pintarParte(10,2);    // PRUEBA 2
+   // pintarParte(12,23);   // PRUEBA 3: pegado al borde inferior
+   // pintarParte(23,8);    // PRUEBA 4: pegado al borde derecho
+   // pintarParte(0,15);    // PRUEBA 5: pegado al borde izquierdo
+   // pintarParte(23,23);   // PRUEBA 6: en una esquina (no la (0,0))
   }
 
 
